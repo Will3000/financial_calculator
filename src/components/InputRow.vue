@@ -18,11 +18,6 @@ export default {
   props: {
     data: Object
   },
-  computed: {
-    inputState () {
-      if (this.data.value===2) return true;
-    }
-  },
   data () {
     return {
       value: null,

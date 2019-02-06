@@ -16,5 +16,5 @@ npm run serve
 ```
 ## Run your test
 ```
-npm run test
+npm run test:unit
 ```

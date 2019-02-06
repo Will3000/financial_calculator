@@ -46,7 +46,7 @@ export default {
 
       let results = [
         { name: "After-tax amount", TFSA: TFSA.afterTaxAmount, RRSP: RRSP.afterTaxAmount },
-        { name: "Real Future Value", TFSA: TFSA.realFutureVal, RRSP: RRSP.realFutureVal },
+        { name: "Real future value", TFSA: TFSA.realFutureVal, RRSP: RRSP.realFutureVal },
         { name: "Tax upon withdrawal", TFSA: TFSA.tax, RRSP: RRSP.tax },
         { name: "After-tax future value", TFSA: TFSA.nominalFutureVal, RRSP: Math.round(RRSP.nominalFutureVal - RRSP.tax)},
       ]
