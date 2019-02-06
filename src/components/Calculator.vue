@@ -34,21 +34,21 @@ export default {
       let RRSP = {}
       let realRate = (1+returnOnInvestment) / (1+inflationRate) - 1
 
-      TFSA.afterTaxAmount = amountOfDeposit * (1 - currMarginalTaxRate)
+      TFSA.afterTaxAmount = Math.round(amountOfDeposit * (1 - currMarginalTaxRate))
       TFSA.nominalFutureVal = futureValue( TFSA.afterTaxAmount, returnOnInvestment, yearsInvested )
       TFSA.realFutureVal = futureValue( TFSA.afterTaxAmount, realRate, yearsInvested )
       TFSA.tax = "N/A"
 
-      RRSP.afterTaxAmount = amountOfDeposit
+      RRSP.afterTaxAmount = Math.round(amountOfDeposit)
       RRSP.nominalFutureVal = futureValue( RRSP.afterTaxAmount, returnOnInvestment, yearsInvested )
       RRSP.realFutureVal = futureValue( RRSP.afterTaxAmount, realRate, yearsInvested )
-      RRSP.tax = RRSP.nominalFutureVal * avgRetirementTaxRate
+      RRSP.tax = Math.round( RRSP.nominalFutureVal * avgRetirementTaxRate )
 
       let results = [
         { name: "After-tax amount", TFSA: TFSA.afterTaxAmount, RRSP: RRSP.afterTaxAmount },
         { name: "Real Future Value", TFSA: TFSA.realFutureVal, RRSP: RRSP.realFutureVal },
         { name: "Tax upon withdrawal", TFSA: TFSA.tax, RRSP: RRSP.tax },
-        { name: "After-tax future value", TFSA: TFSA.nominalFutureVal, RRSP: RRSP.nominalFutureVal - RRSP.tax},
+        { name: "After-tax future value", TFSA: TFSA.nominalFutureVal, RRSP: Math.round(RRSP.nominalFutureVal - RRSP.tax)},
       ]
       this.results = results
     }

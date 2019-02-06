@@ -38,10 +38,22 @@ export default {
       this.inputValues[input.name] = input.value
     },
     onSubmit (evt) {
+      let modalShow = false
       const inputValues = this.inputValues
-      if ( !inputValues.currMarginalTaxRate || !inputValues.avgRetirementTaxRate || !inputValues.amountOfDeposit || !inputValues.yearsInvested || !inputValues.returnOnInvestment || !inputValues.inflationRate ) {
-        this.modalShow = true
-        return
+      const keys = [
+        "currMarginalTaxRate",
+        "avgRetirementTaxRate",
+        "amountOfDeposit",
+        "yearsInvested",
+        "returnOnInvestment",
+        "inflationRate"
+      ]
+
+      for(let key of keys) {
+        if ( inputValues[key] === null || inputValues[key] === undefined ) {
+          this.modalShow = true
+          return
+        }
       }
       this.$emit('submit', this.inputValues)
     }

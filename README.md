@@ -10,9 +10,10 @@ The financial calculator compares using a TFSA and RRSP to save money.
    * Clone the project
    * Go to the project folder path and run `npm install` to install all node_modules
 
-## Run Server
-Run `npm run serve` to run the server in development mode
-
+## Run server
+```
+npm run serve
+```
 ## Run your test
 ```
 npm run test

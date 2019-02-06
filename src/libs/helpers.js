@@ -1,5 +1,5 @@
 function futureValue( amount, rate, years ) {
-  return amount* Math.pow((1 + rate), years)
+  return Math.round( amount* Math.pow((1 + rate), years) )
 }
 
 export {
